@@ -1,12 +1,13 @@
 package com.lockhart.joshua.informativeworkouthelper;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.content.Intent;
+
 
 import com.google.android.youtube.player.YouTubeStandalonePlayer;
 
@@ -22,6 +23,11 @@ public class SingleExerciseInfoActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
+        /*
+         ** The following values are retrieved and used to populate the Activity with information.
+         ** The YouTube video and the instructions text is only viewable after each corresponding
+         ** button is pressed.
+         */
         exerciseTitle = getIntent().getStringExtra("EXERCISE_IMAGE_TITLE");
         youtubeCode = getIntent().getStringExtra("YOUTUBE_CODE");
         textInstructions = getIntent().getStringExtra("TEXT_INSTRUCTIONS");
@@ -37,7 +43,6 @@ public class SingleExerciseInfoActivity extends AppCompatActivity {
         instructionsTextView.setText(textInstructions);
         imageViewOne.setImageResource(imageOne);
         imageViewTwo.setImageResource(imageTwo);
-
     }
 
 

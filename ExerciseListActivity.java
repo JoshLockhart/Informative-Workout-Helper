@@ -24,9 +24,12 @@ public class ExerciseListActivity extends AppCompatActivity implements AdapterVi
             chosenEquipment = getIntent().getStringExtra("CHOSEN_EQUIPMENT");
             Context context = this;
 
-
-            Resources res = getResources();
-
+            /*
+             ** Based off the chosen muscle which is retrieved, information regarding that muscle is pulled from the
+             ** Muscle class and is set into variables.
+             ** images / exerciseListTitles / difficulties / equipment - used in the ExerciseListAdapter.
+             ** images / imagesTwo / exerciseTitles / youtubeCodes / textInstructions - passed through an intent.
+            */
             switch (chosenMuscle) {
                 case "Chest":
                     Muscle.Chest chest = new Muscle.Chest();
@@ -109,17 +112,21 @@ public class ExerciseListActivity extends AppCompatActivity implements AdapterVi
             
             
             myListView = (ListView) findViewById(R.id.myEquipmentListView);
-            ExerciseListAdapter adapter = new ExerciseListAdapter(this, exerciseListTitles, difficulties, equipment, images);
+            ExerciseListAdapter adapter = new ExerciseListAdapter(this, images, exerciseListTitles, difficulties, equipment);
             myListView.setAdapter(adapter);
             myListView.setOnItemClickListener(this);
         }
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            /*
+             ** When an exercise is tapped, a value from image, imagesTwo, exerciseTitles, youtubeCodes,
+             ** and textInstructions is passed and used in the Activity "SingleExerciseInfoActivity"
+            */
             Intent intent = new Intent(this, SingleExerciseInfoActivity.class);
-            intent.putExtra("EXERCISE_IMAGE_TITLE", exerciseTitles[position]);
             intent.putExtra("IMAGE_ONE", images[position]);
             intent.putExtra("IMAGE_TWO", imagesTwo[position]);
+            intent.putExtra("EXERCISE_IMAGE_TITLE", exerciseTitles[position]);
             intent.putExtra("YOUTUBE_CODE", youtubeCodes[position]);
             intent.putExtra("TEXT_INSTRUCTIONS", textInstructions[position]);
             startActivity(intent);

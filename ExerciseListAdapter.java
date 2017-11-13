@@ -12,17 +12,18 @@ import android.widget.TextView;
 
 class ExerciseListAdapter extends ArrayAdapter<String> {
     private Context context;
+    private int[] images;
     private String[] titles, difficulties;
     private String equipment;
-    private int[] images;
 
-    ExerciseListAdapter(Context context, String[] titles,  String[] difficulties, String equipment, int[] images){
+
+    ExerciseListAdapter(Context context,int[] images, String[] titles,  String[] difficulties, String equipment){
         super(context, R.layout.single_exercise_listview_row, R.id.myTitleTextView, titles);
         this.context = context;
+        this.images = images;
         this.titles = titles;
         this.difficulties = difficulties;
         this.equipment = equipment;
-        this.images = images;
     }
 
     @NonNull

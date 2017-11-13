@@ -3,10 +3,9 @@ package com.lockhart.joshua.informativeworkouthelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.content.Intent;
 import android.widget.Button;
+import android.content.Intent;
 
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +14,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
+    /*
+     ** When a certain muscle is tapped, the the chosen muscle is passed and
+     ** used in the activity "EquipmentListActivity"
+    */
     public void onMuscleButtonClick(View view) {
         Button button = (Button) view;
         String buttonText = button.getText().toString();

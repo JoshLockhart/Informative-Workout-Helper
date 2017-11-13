@@ -31,7 +31,6 @@ class Muscle {
         return equipmentString;
     }
 
-
     static class Chest extends Muscle {
 
         int[] getImages(String equipment) {
@@ -1169,6 +1168,5 @@ class Muscle {
             return textInstructions;
         }
     }
-
 
 }
